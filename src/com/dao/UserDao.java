@@ -47,7 +47,7 @@ public class UserDao {
 	}
 	
 	public boolean userLogin(String email, String password) {
-		String query = "SELECT EMAIL FROM USER WHERE EMAIL = ? AND PASSWORD = ?";
+		String query = "SELECT * FROM USER WHERE EMAIL = ? AND PASSWORD = ?";
 		try (Connection connection = DBConnection.getDBConnection();
 				PreparedStatement preparedStatement = connection.prepareStatement(query)) {
 			preparedStatement.setString(1, email);
