@@ -1,26 +1,18 @@
 package com.dto;
 
 public class Account {
-	private long accountNumber;
 	private String secretPin;
 	private int userID;
+	private double amount;
 	
 	public Account() {
 		super();
 	}
 	
-	public Account(long accountNumber, String secretPin, int userId){
-		this.accountNumber = accountNumber;
+	public Account(String secretPin, int userId, double amount){
 		this.secretPin = secretPin;
 		this.userID = userId;
-	}
-	
-	public long getAccountNumber() {
-		return accountNumber;
-	}
-	
-	public void setAccountNumber(long accountNumber) {
-		this.accountNumber = accountNumber;
+		this.amount = amount;
 	}
 	
 	public String getSecretPin() {
@@ -38,6 +30,13 @@ public class Account {
 	public void setUserID(int userID) {
 		this.userID = userID;
 	}
-	
+
+	public double getAmount() {
+		return amount;
+	}
+
+	public void setAmount(int amount) {
+		this.amount = amount;
+	}	
 }
 

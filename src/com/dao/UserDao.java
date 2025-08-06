@@ -46,7 +46,7 @@ public class UserDao {
 		return false;
 	}
 	
-	public boolean userLogin(String email, String password) {
+	public int userLogin(String email, String password) {
 		String query = "SELECT * FROM USER WHERE EMAIL = ? AND PASSWORD = ?";
 		try (Connection connection = DBConnection.getDBConnection();
 				PreparedStatement preparedStatement = connection.prepareStatement(query)) {
@@ -54,15 +54,15 @@ public class UserDao {
 			preparedStatement.setString(2, password);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			if (resultSet.next()) {
-				System.out.println("user email and pass matched....");
-				return true;
+				int id = resultSet.getInt("id");				
+				return id;
 			} else {
-				System.out.println("User not found.....");
-				return false;
+				System.out.println("User not found!!!!!");
+				return 0;
 			}
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
-		return false;
+		return 0;
 	}
 }
