@@ -1,6 +1,7 @@
 package com.dto;
 public class User {
-	private String full_name;
+	private int userId;
+	private String userName;
 	private String email;
 	private String password;
 		
@@ -8,15 +9,38 @@ public class User {
 		super();
 	}
 
-	public User(String full_name, String email, String password) {
+	public User(String userName, String email, String password) {
 		super();
-		this.full_name = full_name;
+		this.userName = userName;
+		this.email = email;
+		this.password = password;
+	}
+		
+	public User(int userId, String userName, String email) {
+		super();
+		this.userId = userId;
+		this.userName = userName;
+		this.email = email;
+	}
+
+	public User(int userId, String userName, String email, String password) {
+		super();
+		this.userId = userId;
+		this.userName = userName;
 		this.email = email;
 		this.password = password;
 	}
 
-	public String getFull_name() {
-		return full_name;
+	public String getuserName() {
+		return userName;
+	}
+	
+	public int getUserId() {
+		return userId;
+	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 
 	public String getEmail() {
@@ -27,8 +51,8 @@ public class User {
 		return password;
 	}
 
-	public void setFull_name(String full_name) {
-		this.full_name = full_name;
+	public void setuserName(String userName) {
+		this.userName = userName;
 	}
 
 	public void setEmail(String email) {

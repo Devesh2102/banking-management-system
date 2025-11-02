@@ -5,6 +5,7 @@ import java.util.regex.Pattern;
 
 import com.dao.UserDao;
 import com.dto.User;
+import com.dto.UserDetails;
 
 public class UserService {
 	UserDao userDao = new UserDao();
@@ -28,11 +29,16 @@ public class UserService {
 	}
 	
 	public User saveUserService(User user) {
-		if(!userDao.userExists(user.getEmail())) {			
+		if(!userDao.userExists(user.getEmail())) {		
 			return userDao.saveUserDao(user);
 		}
 		System.out.println("User already exists....");
 		return null;
+	}
+	
+	public UserDetails fetchUserDetailsService(String email, String password) {
+		UserDetails userDetails = userDao.fetchUserDetails(email, password);		
+		return userDetails;
 	}
 
 }
